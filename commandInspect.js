@@ -40,7 +40,7 @@ const commandInspect = (rl, username) => {
         break;
 
       default:
-        console.log(`Unknown command: ${command}. Try again.`);
+        console.log(`Unknown command: ${command}.Try again.`);
         break;
     }
     if (!exiting) {
