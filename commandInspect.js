@@ -3,6 +3,7 @@ import finish from "./finish.js";
 import os from "os";
 import goUp from "./goUp.js";
 import goToDirectory from "./gotToDir.js";
+import ls from "./ls.js";
 
 const commandInspect = (rl, username) => {
   let exiting = false;
@@ -21,6 +22,9 @@ const commandInspect = (rl, username) => {
         break;
       case "cd":
         goToDirectory(args[0]);
+        break;
+      case "ls":
+        ls();
         break;
 
       case "cat":
