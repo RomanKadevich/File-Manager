@@ -2,6 +2,7 @@ import cat from "./cat.js";
 import finish from "./finish.js";
 import os from "os";
 import goUp from "./goUp.js";
+import goToDirectory from "./gotToDir.js";
 
 const commandInspect = (rl, username) => {
   let exiting = false;
@@ -16,7 +17,10 @@ const commandInspect = (rl, username) => {
 
     switch (command) {
       case "up":
-        goUp()
+        goUp();
+        break;
+      case "cd":
+        goToDirectory(args[0]);
         break;
 
       case "cat":

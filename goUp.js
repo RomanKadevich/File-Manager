@@ -10,7 +10,7 @@ const goUp = () => {
   }
 
   process.chdir(parentDirectory);
-  console.log(`You are now in ${process.cwd()}`);
+
 };
 
 export default goUp;
