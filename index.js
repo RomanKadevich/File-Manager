@@ -1,4 +1,5 @@
 import fs from "node:fs/promises";
+import { username, rl, argv } from "./constants.js";
 // import { fileURLToPath } from "node:url";
 // import { dirname, join } from "node:path";
 
@@ -8,21 +9,14 @@ import fs from "node:fs/promises";
 
 import greeting from "./greeting.js";
 
-import readline from "readline";
+
 import commandInspect from "./commandInspect.js";
-import finish from "./finish.js";
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
 
-const argv = process.argv.slice(2);
-const username = argv[0].split("=")[1];
 
-greeting(username);
-commandInspect(rl);
-rl.on("close", () => {
-  finish(rl, username);
-});
+
+
+greeting(argv,username);
+commandInspect(rl, username);
+
 

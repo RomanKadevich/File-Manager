@@ -1,6 +1,13 @@
 import cat from "./cat.js";
+import finish from "./finish.js";
+import os from "os";
+import goUp from "./goUp.js";
 
-const commandInspect = (rl) => {
+const commandInspect = (rl, username) => {
+  let exiting = false;
+  let homeDirectory = os.homedir();
+  process.chdir(homeDirectory);
+  console.log(`You are currently in ${homeDirectory}`);
   rl.setPrompt("Enter a command: ");
   rl.prompt();
 
@@ -8,24 +15,37 @@ const commandInspect = (rl) => {
     const [command, ...args] = input.trim().split(" ");
 
     switch (command) {
+      case "up":
+        goUp()
+        break;
+
       case "cat":
         cat(args[0]);
         break;
 
-      case "exit":
+      case ".exit":
+        exiting = true;
         console.log(`Thank you for using File Manager, ${username}, goodbye!`);
-        rl.close();
+        setImmediate(() => {
+          rl.close();
+        });
         break;
 
       default:
         console.log(`Unknown command: ${command}. Try again.`);
         break;
     }
-
-    rl.prompt();
+    if (!exiting) {
+      console.log(`You are currently in ${process.cwd()}`);
+      rl.prompt();
+    }
   });
-
- 
+  rl.on("close", () => {
+    if (!exiting) {
+      exiting = true;
+      finish(rl, username);
+    }
+  });
 };
 
 export default commandInspect;

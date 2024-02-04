@@ -2,6 +2,10 @@ import { createReadStream } from "fs";
 
 
 const cat=(filePath)=> {
+  if (!filePath) {
+    console.log('Empty path. Try again.');
+    return;
+  }
     const readStream = createReadStream(filePath);
   
     readStream.on('data', (chunk) => {
