@@ -6,18 +6,23 @@ import fs from "node:fs/promises";
 //   const __dirname = dirname(filename);
 //   const filePath = join(__dirname, "files", "fileToRead.txt");
 
-
 import greeting from "./greeting.js";
 
-import readline from "readline"
+import readline from "readline";
 import commandInspect from "./commandInspect.js";
-
+import finish from "./finish.js";
 
 const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-  });
+  input: process.stdin,
+  output: process.stdout,
+});
 
+const argv = process.argv.slice(2);
+const username = argv[0].split("=")[1];
 
-greeting();
-commandInspect(rl)
+greeting(username);
+commandInspect(rl);
+rl.on("close", () => {
+  finish(rl, username);
+});
+

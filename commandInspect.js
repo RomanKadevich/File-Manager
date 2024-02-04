@@ -25,9 +25,7 @@ const commandInspect = (rl) => {
     rl.prompt();
   });
 
-  rl.on("close", () => {
-    process.exit(0);
-  });
+ 
 };
 
 export default commandInspect;

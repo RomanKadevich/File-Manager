@@ -1,8 +1,7 @@
-const greeting = () => {
-    const argv = process.argv.slice(2);
-  console.log(argv)
+const greeting = (argv, username) => {
+  
     if (argv.length >= 1 && argv[0].startsWith("--username=")) {
-      const username = argv[0].split("=")[1];
+    
       console.log(`Welcome to the File Manager, ${username}!`);
    
     } 
