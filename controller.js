@@ -15,7 +15,7 @@ import decompress from "./utils/decompress.js";
 import help from "./utils/help.js";
 import move from "./utils/move.js";
 
-const commandInspect = (rl, username) => {
+const controller = (rl, username) => {
   const osInfo = new OS();
   let exiting = false;
   let homeDirectory = os.homedir();
@@ -94,4 +94,4 @@ const commandInspect = (rl, username) => {
   });
 };
 
-export default commandInspect;
+export default controller;
