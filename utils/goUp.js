@@ -10,7 +10,6 @@ const goUp = () => {
   }
 
   process.chdir(parentDirectory);
-
 };
 
 export default goUp;

@@ -1,8 +1,6 @@
-import { username, rl, argv } from "./constants.js";
-import greeting from "./greeting.js";
-import commandInspect from "./commandInspect.js";
+import { username, rl, argv } from "./utils/constants.js";
+import greeting from "./utils/greeting.js";
+import controller from "./controller.js";
 
-greeting( argv,username);
-commandInspect(rl, username);
-
-
+greeting(argv, username);
+controller(rl, username);
