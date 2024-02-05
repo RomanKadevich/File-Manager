@@ -10,7 +10,7 @@ const remove = async (sourceFilePath) => {
     console.log("File was removed successfully");
   } catch (accessError) {
     console.error(
-      "FS operation failed: Error deleting file:",
+      "Operation failed: Error deleting file:",
       accessError.message
     );
   }

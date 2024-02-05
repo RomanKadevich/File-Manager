@@ -7,6 +7,7 @@ import ls from "./ls.js";
 import addEmptyFile from "./addEmptyFile.js";
 import renameFile from "./renameFile.js";
 import remove from "./remove.js";
+import copy from "./copy.js";
 
 const commandInspect = (rl, username) => {
   let exiting = false;
@@ -38,8 +39,11 @@ const commandInspect = (rl, username) => {
       case "rn":
         renameFile(args[0], args[1]);
         break;
-        case "rm":
-      remove(args[0]);
+      case "cp":
+        copy(args[0], args[1]);
+        break;
+      case "rm":
+        remove(args[0]);
         break;
       case ".exit":
         exiting = true;
