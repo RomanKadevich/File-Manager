@@ -4,6 +4,9 @@ import os from "os";
 import goUp from "./goUp.js";
 import goToDirectory from "./gotToDir.js";
 import ls from "./ls.js";
+import addEmptyFile from "./addEmptyFile.js";
+import renameFile from "./renameFile.js";
+import remove from "./remove.js";
 
 const commandInspect = (rl, username) => {
   let exiting = false;
@@ -26,11 +29,18 @@ const commandInspect = (rl, username) => {
       case "ls":
         ls();
         break;
-
       case "cat":
         cat(args[0]);
         break;
-
+      case "add":
+        addEmptyFile(args[0]);
+        break;
+      case "rn":
+        renameFile(args[0], args[1]);
+        break;
+        case "rm":
+      remove(args[0]);
+        break;
       case ".exit":
         exiting = true;
         console.log(`Thank you for using File Manager, ${username}, goodbye!`);

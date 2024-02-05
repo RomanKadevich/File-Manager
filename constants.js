@@ -5,6 +5,6 @@ export const rl = readline.createInterface({
   output: process.stdout,
 });
 
-export const argv = process.argv.slice(2);
+export let argv =process.argv.length>2?process.argv.slice(2):null
 
-export const username = argv[0].split("=")[1];
+export const username = argv?argv[0].split("=")[1]:"";
